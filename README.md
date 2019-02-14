@@ -9,8 +9,9 @@ Make a copy of the .env file and populate it with the following values
 * API_KEY - This can be found in your Clockify personal settings
 * WORKSPACE_ID - This can be found by running the following command which will show you a list of all workspaces with their ID's.
 
-`curl -H "content-type: application/json" -H "X-Api-Key: YOUR_API_KEY" -X GET https://api.clockify.me/api/workspaces/`
-
+```
+curl -H "content-type: application/json" -H "X-Api-Key: YOUR_API_KEY" -X GET https://api.clockify.me/api/workspaces/
+```
 There are also two additional commands
 * DEBUG = This will result in some additional output for debugging, and start a pry session on exceptions.
 * INLINE_TIMER = The default mode when using in the command line is to start a timer that will show the project that you are working on and the time elapsed. If you opt out of this feature you will have to start and stop the timer seperately. 
@@ -37,15 +38,19 @@ You can use any unique abbreviation of the project name in order to match it. To
 
 To use the example above, you could use any of these to link to the same project
 
-`ruby start_timer.rb 'This is a test' 'DOT: Initial'`
-`ruby start_timer.rb 'This is a test' 'DOT: I'`
-`ruby start_timer.rb 'This is a test' 'DOT'`
-`ruby start_timer.rb 'This is a test' 'D'`
+```
+ruby start_timer.rb 'This is a test' 'DOT: Initial'
+ruby start_timer.rb 'This is a test' 'DOT: I'
+ruby start_timer.rb 'This is a test' 'DOT'
+ruby start_timer.rb 'This is a test' 'D'
+```
 
 You have to be more careful if there are projects that are name similarly. For example, given these two project names:
-`DOT: Initial Launch`
-`DOT: Interesting Launch`
 
+```
+DOT: Initial Launch
+DOT: Interesting Launch
+```
 It will get confused if you give it just `DOT` but it will know what you are talking about if you pass it `DOT: Ini`.
 
 ## Stopping timers
@@ -56,8 +61,10 @@ Stopping timers is easy, just run the stop timer script. Note, this will stop an
 
 I have two shortcuts set up for me to make things easier.
 
-`ts='ruby ~/path/to/project/clockify/start_timer.rb'`
-`tst='ruby ~/path/to/project/clockify/stop_timer.rb'`
+```
+ts='ruby ~/path/to/project/clockify/start_timer.rb'
+tst='ruby ~/path/to/project/clockify/stop_timer.rb'
+```
 
 ### Future Developments
 * Less ambigous project matching
