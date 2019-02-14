@@ -1,4 +1,4 @@
-# Clockify Timer
+# Clockify Cli Timer
 Start and stop your clockify timer from the command line. 
 
 ## Setup
