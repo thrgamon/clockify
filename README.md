@@ -31,6 +31,17 @@ You will need to pass in at least one of these arguments:
 
 `ruby start_timer.rb 'This is a test' 'DOT: Initial launch'`
 
+This will start a timer in the command line which will look something like this. 
+
+```
+> projects/clockify $ ruby start_timer.rb 'X-Treme debugging' DOT
+X-Treme debugging | DOT | 00:45:15
+```
+
+To stop the timer, just hit enter.
+
+If you would rather not having it constantly running in your terminal, you can set the `INLINE_TIMER` env var to false and you can start and stop the timer with seperate commands. 
+
 ### Project Matching
 
 If you are anything like me, you are probably thing, that seems like a lot of effort to add a project. Fear not, I have your back.
