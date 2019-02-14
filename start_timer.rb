@@ -1,3 +1,5 @@
 require_relative 'clockify'
 
-Clockify.new.start_timer(ARGV[0])
+args = ARGV[0, 2]
+
+Clockify.new.start_timer(*args)
