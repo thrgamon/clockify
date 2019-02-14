@@ -1,18 +1,25 @@
+#frozen_string_literal: true
+
 require 'rest-client'
 require 'pry'
 require 'time'
 require 'yaml/store'
 require 'abbrev'
+require 'dotenv'
+
+Dotenv.load('.env.local', '.env')
 
 class Clockify
-  URL_BASE = "https://api.clockify.me/api/workspaces/#{WORKSPACE_ID}".freeze
+  API_KEY = ENV['API_KEY']
+  WORKSPACE_ID = ENV['WORKSPACE_ID']
+  URL_BASE = "https://api.clockify.me/api/workspaces/#{WORKSPACE_ID}"
   HEADERS = {
     'X-Api-Key' => API_KEY,
     'content-type' => 'application/json'
   }
   PROJECT_STORE = "projects.store"
-  DEBUG = false
-  INLINE_TIMER=true
+  DEBUG = ENV.fetch('DEBUG', false)
+  INLINE_TIMER = ENV.fetch('INLINE_TIMER', true)
 
   def start_timer(description, project = nil)
     uri = URL_BASE + '/timeEntries/'
@@ -40,7 +47,7 @@ class Clockify
       stop_timer
     end
   rescue StandardError 
-    binding.pry if DEBUG
+    binding.pry
     puts 'There was an error with starting your timer.'
   end
 
@@ -49,6 +56,7 @@ class Clockify
     params = {end: Time.now.utc.iso8601}
     RestClient.put(uri, params.to_json, HEADERS)
   rescue StandardError
+    binding.pry if DEBUG
     puts 'There was an error with stopping your timer.'
   end
 
