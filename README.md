@@ -45,7 +45,7 @@ If you would rather not having it constantly running in your terminal, you can s
 ### Project Matching
 
 If you are anything like me, you are probably thing, that seems like a lot of effort to add a project. Fear not, I have your back.
-You can use any unique abbreviation of the project name in order to match it. To see a full list of examples, you can look at the `abbrevs` part of the `projects.store`
+You can use any unique abbreviation of the project name in order to match it. To see a full list of examples, you can look at the `abbrevs` part of the `projects.store` after you have run the command at least once with a project (it caches the response).
 
 To use the example above, you could use any of these to link to the same project
 
