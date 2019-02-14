@@ -7,7 +7,7 @@ require 'yaml/store'
 require 'abbrev'
 require 'dotenv'
 
-Dotenv.load('.env.local', '.env')
+Dotenv.load("#{File.dirname(__FILE__)}/.env.local", "#{File.dirname(__FILE__)}/.env")
 
 class Clockify
   API_KEY = ENV['API_KEY']
