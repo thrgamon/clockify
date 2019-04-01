@@ -4,5 +4,5 @@ group :development do
   gem 'pry'
 end
 
-gem 'rest-client'
 gem 'dotenv'
+gem 'rest-client'
