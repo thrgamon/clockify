@@ -1,3 +1,4 @@
 projects.store
 .env.local
 todo
+tags
