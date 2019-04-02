@@ -53,7 +53,7 @@ class Clockify
 
   private
 
-    def output_timer
+    def output_timer(description, project)
       buff = []
       starting = Time.now
 
