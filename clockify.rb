@@ -5,6 +5,7 @@ require 'time'
 require 'yaml/store'
 require 'abbrev'
 require 'dotenv'
+require 'pry'
 
 Dotenv.load("#{File.dirname(__FILE__)}/.env.local", "#{File.dirname(__FILE__)}/.env")
 
@@ -35,7 +36,7 @@ class Clockify
     puts params if DEBUG
 
     output_timer(description, project) if INLINE_TIMER
-  rescue StandardError
+  rescue StandardError => e
     binding.pry
     puts 'There was an error with starting your timer.'
   end
@@ -45,7 +46,7 @@ class Clockify
     params = { end: Time.now.utc.iso8601 }
     RestClient.put(uri, params.to_json, HEADERS)
     switch_light('0')
-  rescue StandardError
+  rescue StandardError => e
     binding.pry if DEBUG
     puts 'There was an error with stopping your timer.'
   end
