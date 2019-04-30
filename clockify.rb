@@ -115,7 +115,8 @@ class Clockify
 
     # 1 turns the light on, whereas 0 turns it off.
     def switch_light(switch_state)
-      Thread.new { RestClient.post(DEVICE_URL, args: switch_state) }
+      RestClient.post(DEVICE_URL, args: switch_state)
+    rescue RestClient::BadRequest
     end
 
 end
